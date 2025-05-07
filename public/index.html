@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Music Recommender</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-5xl font-bold text-center mb-8 text-white">Mood Music Recommender</h1>
+            <p class="text-xl text-center text-gray-300 mb-12">Select your mood and discover the perfect soundtrack for your day</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+                <button onclick="getMusic('happy')" class="mood-btn bg-gradient-to-br from-green-400 to-green-600 hover:from-green-500 hover:to-green-700">
+                    <i class="fas fa-smile text-3xl mb-2"></i>
+                    <span>Happy</span>
+                </button>
+                <button onclick="getMusic('sad')" class="mood-btn bg-gradient-to-br from-blue-400 to-blue-600 hover:from-blue-500 hover:to-blue-700">
+                    <i class="fas fa-sad-tear text-3xl mb-2"></i>
+                    <span>Sad</span>
+                </button>
+                <button onclick="getMusic('tired')" class="mood-btn bg-gradient-to-br from-purple-400 to-purple-600 hover:from-purple-500 hover:to-purple-700">
+                    <i class="fas fa-moon text-3xl mb-2"></i>
+                    <span>Tired</span>
+                </button>
+                <button onclick="getMusic('stressed')" class="mood-btn bg-gradient-to-br from-red-400 to-red-600 hover:from-red-500 hover:to-red-700">
+                    <i class="fas fa-fire text-3xl mb-2"></i>
+                    <span>Stressed</span>
+                </button>
+            </div>
+
+            <div id="music-container" class="hidden rounded-2xl p-8 text-white mb-8">
+                <div class="flex items-center mb-6">
+                    <div class="w-24 h-24 bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg mr-6 flex items-center justify-center shadow-lg">
+                        <i class="fas fa-music text-4xl text-green-500"></i>
+                    </div>
+                    <div>
+                        <h3 id="song-title" class="text-2xl font-bold mb-2"></h3>
+                        <p id="artist-name" class="text-gray-300"></p>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <div class="flex justify-between text-sm text-gray-300 mb-2">
+                        <span class="current-time">0:00</span>
+                        <span id="song-duration">0:00</span>
+                    </div>
+                    <div id="progress-bar-container" class="h-1.5 bg-gray-700 rounded-full">
+                        <div id="progress-bar" class="h-full rounded-full" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <div class="flex justify-center items-center">
+                    <button class="control-btn play-btn">
+                        <i class="fas fa-play text-xl"></i>
+                    </button>
+                </div>
+
+                <div id="loading-indicator" class="hidden mt-4 text-center">
+                    <div class="inline-block animate-spin rounded-full h-8 w-8 border-4 border-green-500 border-t-transparent"></div>
+                    <p class="mt-2 text-sm text-gray-300">Loading song...</p>
+                </div>
+
+                <div id="error-message" class="hidden mt-4 text-center text-red-400">
+                    <i class="fas fa-exclamation-circle mr-2"></i>
+                    <span>Error loading song. Please try again.</span>
+                </div>
+            </div>
+
+            <!-- Novel Section -->
+            <div id="novel-container" class="hidden rounded-2xl p-8 text-white max-h-[70vh] overflow-y-auto">
+                <div class="grid grid-cols-1 gap-4 mb-4">
+                    <h2 class="text-2xl font-bold text-green-500 hidden">盐水记忆</h2>
+                    <h2 class="text-2xl font-bold text-green-500 hidden">life,once again!</h2>
+                    <h2 class="text-2xl font-bold text-green-500 hidden">The Dream Weaver</h2>
+                    <h2 class="text-2xl font-bold text-green-500 hidden">Finding Calm in Chaos</h2>
+                </div>
+                <div id="novel-content" class="prose prose-invert max-w-none">
+                    <p class="text-gray-300 leading-relaxed"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
