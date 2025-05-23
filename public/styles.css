@@ -46,8 +46,12 @@
 }
 
 .control-btn {
-    @apply w-16 h-16 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-all duration-300;
+    @apply w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-all duration-300;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.control-btn.play-btn {
+    @apply w-16 h-16;
 }
 
 .control-btn:hover {
@@ -96,14 +100,53 @@
     border-radius: 0.5rem;
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+/* Special styling for tired mood - no scrollbar */
+#novel-container.tired-mood {
     max-height: none;
-    overflow: visible;
+    overflow-y: visible;
 }
 
 #novel-content {
     color: #e2e8f0;
     line-height: 1.6;
     overflow: visible;
+}
+
+/* Add specific styling for GIFs in the novel content */
+#novel-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 0.5rem 0;
+    display: block;
+}
+
+/* Container for emoticon-style GIFs */
+.gif-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;
+    width: 100%;
+}
+
+/* Emoticon-style GIFs */
+.emoji-gif {
+    width: 30% !important;
+    height: auto !important;
+    object-fit: contain;
+    border-radius: 10px !important;
+    margin: 0 !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+}
+
+.emoji-gif:hover {
+    transform: scale(1.1);
 }
 
 #novel-content p {
@@ -150,4 +193,72 @@ body {
     background: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(5px);
     z-index: -1;
-} 
+}
+
+/* Comment Section Styles */
+#comment-section {
+    margin-top: 2rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: rgba(30, 30, 30, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+#comments-container {
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+#comment-input {
+    resize: none;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+#add-comment-btn {
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#add-comment-btn:hover {
+    background-color: #1ed760;
+}
+
+/* Pulse effect */
+@keyframes caress {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1) rotate(2deg); }
+  }
+  
+  /* Add a blush or bounce when clicked */
+  #cute-pet.clicked img {
+    animation: caress 0.6s ease;
+  }
+  
+  /* Optional: add a blush emoji or heart above when clicked */
+  #cute-pet::after {
+    content: '💖';
+    position: absolute;
+    top: -1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  #cute-pet.clicked::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-0.5rem);
+  }
+  
+  .lyrics-area {
+    white-space: pre-wrap;
+    line-height: 1.6;
+}
+
+
+
+ 
+  

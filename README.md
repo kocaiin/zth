@@ -1,12 +1,12 @@
 # Mood Recipe Recommender
 
-A simple web application that recommends recipes based on your mood.
+A simple web application that recommends music based on your mood.
 
 ## Features
 
 - Select your current mood from four options: Happy, Sad, Tired, or Stressed
-- Get a random recipe recommendation based on your mood
-- Request a new recipe if you don't like the current one
+- Get a random music recommendation based on your mood
+- Request a new music if you don't like the current one
 - Simple and intuitive interface
 
 ## Setup
@@ -26,9 +26,3 @@ npm start
 http://localhost:3000
 ```
 
-## Technologies Used
-
-- Express.js (Backend)
-- SQLite (Database)
-- HTML, CSS, and JavaScript (Frontend)
-- Tailwind CSS (Styling) 

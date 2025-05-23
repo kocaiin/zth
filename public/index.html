@@ -15,19 +15,19 @@
             <p class="text-xl text-center text-gray-300 mb-12">Select your mood and discover the perfect soundtrack for your day</p>
             
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-                <button onclick="getMusic('happy')" class="mood-btn bg-gradient-to-br from-green-400 to-green-600 hover:from-green-500 hover:to-green-700">
+                <button data-mood="happy" class="mood-btn bg-gradient-to-br from-green-400 to-green-600 hover:from-green-500 hover:to-green-700">
                     <i class="fas fa-smile text-3xl mb-2"></i>
                     <span>Happy</span>
                 </button>
-                <button onclick="getMusic('sad')" class="mood-btn bg-gradient-to-br from-blue-400 to-blue-600 hover:from-blue-500 hover:to-blue-700">
+                <button data-mood="sad" class="mood-btn bg-gradient-to-br from-blue-400 to-blue-600 hover:from-blue-500 hover:to-blue-700">
                     <i class="fas fa-sad-tear text-3xl mb-2"></i>
                     <span>Sad</span>
                 </button>
-                <button onclick="getMusic('tired')" class="mood-btn bg-gradient-to-br from-purple-400 to-purple-600 hover:from-purple-500 hover:to-purple-700">
+                <button data-mood="tired" class="mood-btn bg-gradient-to-br from-purple-400 to-purple-600 hover:from-purple-500 hover:to-purple-700">
                     <i class="fas fa-moon text-3xl mb-2"></i>
                     <span>Tired</span>
                 </button>
-                <button onclick="getMusic('stressed')" class="mood-btn bg-gradient-to-br from-red-400 to-red-600 hover:from-red-500 hover:to-red-700">
+                <button data-mood="stressed" class="mood-btn bg-gradient-to-br from-red-400 to-red-600 hover:from-red-500 hover:to-red-700">
                     <i class="fas fa-fire text-3xl mb-2"></i>
                     <span>Stressed</span>
                 </button>
@@ -55,8 +55,14 @@
                 </div>
 
                 <div class="flex justify-center items-center">
-                    <button class="control-btn play-btn">
+                    <button class="control-btn prev-btn">
+                        <i class="fas fa-step-backward text-xl"></i>
+                    </button>
+                    <button class="control-btn play-btn mx-4">
                         <i class="fas fa-play text-xl"></i>
+                    </button>
+                    <button class="control-btn next-btn">
+                        <i class="fas fa-step-forward text-xl"></i>
                     </button>
                 </div>
 
@@ -74,17 +80,31 @@
             <!-- Novel Section -->
             <div id="novel-container" class="hidden rounded-2xl p-8 text-white max-h-[70vh] overflow-y-auto">
                 <div class="grid grid-cols-1 gap-4 mb-4">
-                    <h2 class="text-2xl font-bold text-green-500 hidden">盐水记忆</h2>
-                    <h2 class="text-2xl font-bold text-green-500 hidden">life,once again!</h2>
-                    <h2 class="text-2xl font-bold text-green-500 hidden">The Dream Weaver</h2>
-                    <h2 class="text-2xl font-bold text-green-500 hidden">Finding Calm in Chaos</h2>
+                    <h2 class="text-2xl font-bold text-green-500 hidden">夸克网盘&gallery</h2>
+                    <h2 class="text-2xl font-bold text-green-500 hidden">lyrics&小说</h2>
+                    <h2 class="text-2xl font-bold text-green-500 hidden">蛋</h2>
+                    <h2 class="text-2xl font-bold text-green-500 hidden">X</h2>
                 </div>
                 <div id="novel-content" class="prose prose-invert max-w-none">
                     <p class="text-gray-300 leading-relaxed"></p>
                 </div>
             </div>
+
+            <!-- Comment Section -->
+            <div id="comment-section" class="rounded-2xl p-8 text-white bg-gray-800 mt-8">
+                <h2 class="text-2xl font-bold mb-4">Comments</h2>
+                <div id="comments-container" class="space-y-4 mb-4">
+                    <!-- Existing comments will be displayed here -->
+                </div>
+                <textarea id="comment-input" class="w-full p-4 rounded-lg bg-gray-700 text-white mb-4" placeholder="Write a comment..."></textarea>
+                <button id="add-comment-btn" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">Add Comment</button>
+            </div>
         </div>
     </div>
-    <script src="script.js"></script>
+    <!-- Cute character container -->
+<div id="cute-pet" class="fixed bottom-8 right-8 cursor-pointer z-50">
+    <img src="images/pngwing.com.png" alt="Cute Pet" class="w-24 h-24 rounded-full transition-all duration-300" />
+</div>
+    <script type="module" src="js/main.js"></script>
 </body>
-</html> 
+</html>
